@@ -10,13 +10,12 @@ from rest_framework.response import Response
 import time
 from selenium.common.exceptions import StaleElementReferenceException
 from selenium.common.exceptions import NoSuchElementException
-import json,os
 
 chrome_driver_service = ChromeService(ChromeDriverManager().install())
 chrome_options = Options()
-# chrome_options.add_argument('--headless=new')
-# chrome_options.add_argument('--disable-gpu')
-# chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
+chrome_options.add_argument('--headless=new')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
 
 chrome_driver = webdriver.Chrome(service=chrome_driver_service, options=chrome_options)
 chrome_driver.get('https://youtube.com')
